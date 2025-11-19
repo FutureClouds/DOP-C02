@@ -652,7 +652,7 @@
 DevOps Engineer<br>
 Professional<br>
 (DOP-C02) Exam</h1>
-            <p style="font-size: 1.2rem; margin-bottom: 40px;">DOP-C02 includes 382 dynamic questions with customizable count that change each time.</p>
+            <p style="font-size: 1.2rem; margin-bottom: 40px;">DOP-C02 includes 390 dynamic questions with customizable count that change each time.</p>
             
             <div class="setup-container">
                 <div class="setup-box">
@@ -3815,8 +3815,8 @@ E. Add an action in the deployment stage to run an Amazon CodeGuru code scan aft
 
 Q: A company is implementing a standardized security baseline across its AWS accounts. The accounts are in an organization in AWS Organizations. The company must deploy consistent IAM roles and policies across all existing and future accounts in the organization. Which solution will meet these requirements with the MOST operational efficiency?
 A. Enable AWS Control Tower in the management account. Configure AWS Control Tower Account Factory customization to deploy the required IAM roles and policies to all accounts.
-B. Activate trusted access for AWS CloudFormation StackSets in Organizations. In the management account, create a stack set that has service-managed permissions to deploy the required IAM roles and policies to all accounts. Enable automatic deployment for the stack set.
-*C. In each member account, create IAM roles that have permissions to create and manage resources. In the management account, create an AWS CloudFormation stack set that has self-managed permissions to deploy the required IAM roles and policies to all accounts. Enable automatic deployment for the stack set.
+*B. Activate trusted access for AWS CloudFormation StackSets in Organizations. In the management account, create a stack set that has service-managed permissions to deploy the required IAM roles and policies to all accounts. Enable automatic deployment for the stack set.
+C. In each member account, create IAM roles that have permissions to create and manage resources. In the management account, create an AWS CloudFormation stack set that has self-managed permissions to deploy the required IAM roles and policies to all accounts. Enable automatic deployment for the stack set.
 D. In the management account, create an AWS CodePipeline pipeline. Configure the pipeline to use AWS CloudFormation to automate the deployment of the required IAM roles and policies. Set up cross-account IAM roles to allow CodePipeline to deploy resources in the member accounts.
 
 
@@ -3883,6 +3883,73 @@ Q: A company has a search application that has a web interface. The company uses
 B. Create a new CloudFront distribution in the DR Region and add the new ALB as an origin. Use Amazon Route 53 DNS for Regional failover. Copy the AMI to the DR Region. Create a launch template and an Auto Scaling group with a desired capacity of 0 in the DR Region. Reconfigure the OpenSearch Service cluster as a Multi-AZ with Standby deployment. Ensure that the standby nodes are in the DR Region.
 C. Create a new CloudFront distribution in the DR Region and add the new ALB as an origin. Use Amazon Route 53 DNS for Regional failover. Copy the AMI to the DR Region. Create a launch template and an Auto Scaling group with a desired capacity of 3 in the DR Region. Reconfigure the OpenSearch Service cluster as a Multi-AZ with Standby deployment. Ensure that the standby nodes are in the DR Region.
 D. Add the new ALB as an origin in the CloudFront distribution. Configure origin failover functionality. Copy the AMI to the DR Region. Create a launch template and an Auto Scaling group with a desired capacity of 3 in the DR Region. Create a new OpenSearch Service cluster in the DR Region. Set up cross-cluster replication for the cluster.
+
+
+
+Q: A company is migrating its web application to AWS. The application uses WebSocket connections for real-time updates and requires sticky sessions. A DevOps engineer must implement a highly available architecture for the application. The application must be accessible to users worldwide with the least possible latency. Which solution will meet these requirements with the LEAST operational overhead?
+*A. Deploy an Application Load Balancer (ALB). Deploy another ALB in a different AWS Region. Enable cross-zone load balancing and sticky sessions on the ALBs. Integrate the ALBs with Amazon Route 53 latency-based routing.
+B. Deploy a Network Load Balancer (NLB). Deploy another NLB in a different AWS Region. Enable cross-zone load balancing and sticky sessions on the NLBs. Integrate the NLBs with Amazon Route 53 geolocation routing.
+C. Deploy a Network Load Balancer (NLB) with cross-zone load balancing enabled. Configure the NLB with IP-based targets in multiple Availability Zones. Use Amazon CloudFront for global content delivery. Implement sticky sessions by using source IP address preservation on the NLB.
+D. Deploy an Application Load Balancer (ALB) for HTTP traffic. Deploy a Network Load Balancer (NLB) in each of the company’s AWS Regions for WebSocket connections. Enable sticky sessions on the ALB. Configure the ALB to forward requests to the NLB.
+
+
+
+Q: A company has a workflow that generates a file for each of the company's products and stores the files in a production environment Amazon S3 bucket. The company's users can access the S3 bucket. Each file contains a product ID. Product IDs for products that have not been publicly announced are prefixed with a specific UUID. Product IDs are 12 characters long. IDs for products that have not been publicly announces begin with the letter P. The company does not want information about products that have not been publicly announced to be available in the production environment S3 bucket. Which solution will meet these requirements?
+*A. Create a new staging S3 bucket. Generate all files in the new staging bucket. Create an Amazon Macie custom data identifier to identify product IDs in the new bucket that begin with the specific UUID. Launch an Amazon Macie sensitive data discovery job with the custom data identifier. Copy all files that do not have a Macie finding to the production S3 bucket.
+B. Create an Amazon Macie custom data identifier to identify product IDs in the production bucket that begin with the specific UUID. Launch an Amazon Macie sensitive data discovery job with the custom data identifier. Remove all files that have a Macie finding from the production S3 bucket.
+C. Create a new staging S3 bucket. Generate all files in the new staging bucket. Launch an Amazon Macie sensitive data discovery job with a managed data identifier. Copy all files that do not have a Macie finding to the production S3 bucket.
+D. Create an Amazon Macie sensitive data discovery job with a managed data identifier. Remove all files that have a Macie finding from the production S3 bucket.
+
+
+
+Q: A company uses Amazon RDS for Microsoft SQL Server as its primary database for applications. The company needs to ensure high availability within and across AWS Regions. An Amazon Route 53 CNAME record is configured for the database endpoint. The applications connect to the database endpoint. The company must redirect application traffic to a standby database during a failover event. The company must maintain an RPO of less than 1 minute and an RTO of less than 10 minutes. Which solution will meet these requirements?
+*A. Deploy an Amazon RDS for SQL Server Multi-AZ DB cluster deployment that uses cross-Region read replicas. Use automation to promote the read replica to a standalone instance and to update the Route 53 record.
+B. Deploy an Amazon RDS for SQL Server Multi-AZ DB cluster deployment. Set up automated snapshots to be copied to another Region every 5 minutes. Use AWS Lambda to restore the latest snapshot in the secondary Region during failover.
+C. Deploy an Amazon RDS for SQL Server Single-AZ DB instance. Use AWS Database Migration Service (AWS DMS) to replicate data continuously to an RDS DB instance in another Region. Use Amazon CloudWatch alarms to notify the company about failover events.
+D. Deploy an Amazon RDS for SQL Server Single-AZ DB instance. Configure AWS Backup to create cross-Region backups every 30 seconds. Use automation to restore the latest backup and to update the Route 53 record during failover.
+
+
+
+Q: A company wants to build a pipeline to update the standard AMI monthly. The AMI must be updated to use the most recent patches to ensure that launched Amazon EC2 instances are up to date. Each new AMI must be available to all AWS accounts in the company's organization in AWS Organizations. The company needs to configure an automated pipeline to build the AMI. Which solution will meet these requirements with the MOST operational efficiency?
+A. Create an AWS CodePipeline pipeline that uses AWS CodeBuild. Create an AWS Lambda function to run the pipeline every month. Create an AWS CloudFormation template. Share the template with all AWS accounts in the organization.
+*B. Create an AMI pipeline by using EC2 Image Builder. Configure the pipeline to distribute the AMI to the AWS accounts in the organization. Configure the pipeline to run monthly.
+C. Create an AWS CodePipeline pipeline that runs an AWS Lambda function to build the AMI. Configure the pipeline to share the AMI with the AWS accounts in the organization. Configure Amazon EventBridge Scheduler to invoke the pipeline every month.
+D. Create an AWS Systems Manager Automation runbook. Configure the automation to run in all AWS accounts in the organization. Create an AWS Lambda function to run the automation every month.
+
+
+
+Q: A company has an application that uses an Amazon API Gateway REST API, AWS Lambda functions, and an Amazon DynamoDB table. The application currently runs in a single AWS Region. The company wants to make the application highly available across two Regions. User traffic must be routed to the Region that provides the least latency. Which combination of steps will meet these requirements? (Choose three.)
+*A. Create a replica of the DynamoDB table in a second Region.
+B. Create a global secondary index for the DynamoDB table.
+*C. Create copies of the REST API and the Lambda functions in a second Region.
+D. Create health checks in Amazon Route 53. Create DNS records that include a failover routing policy.
+*E. Create health checks in Amazon Route 53. Create DNS records that include a latency routing policy.
+F. Create DNS records in Amazon Route 53 that include a multivalue answer routing policy.
+
+
+
+Q: A company has a web application that is hosted on Amazon EC2 instances. The company is deploying the application into multiple AWS Regions. The application consists of dynamic content such as WebSocket-based real-time product updates. The company uses Amazon Route 53 to manage all DNS records. Which solution will provide multi-Region access to the application with the LEAST latency?
+A. Deploy an Application Load Balancer (ALB) in front of the EC2 instances in each Region. Create a Route 53 A record with a latency-based routing policy. Add IP addresses of the ALBs as the value of the record.
+B. Deploy an Application Load Balancer (ALB) in front of the EC2 instances in each Region. Deploy an Amazon CloudFront distribution with an origin group that contains the ALBs as origins. Create a Route 53 alias record that points to the CloudFront distribution's DNS address.
+C. Deploy a Network Load Balancer (NLB) in front of the EC2 instances in each Region. Create a Route 53 A record with a multivalue answer routing policy. Add IP addresses of the NLBs as the value of the record.
+*D. Deploy a Network Load Balancer (NLB) in front of the EC2 instances in each Region. Deploy an AWS Global Accelerator standard accelerator with an endpoint group for each NLB. Create a Route 53 alias record that points to the accelerator's DNS address.
+
+
+
+Q: A company manages its multi-account environment by using AWS Organizations and AWS Control Tower. The company must deploy standardized security controls and compliance policies across all of its AWS accounts and AWS Regions. Any changes to these controls must be automatically applied to all accounts simultaneously. The company has the required security controls and compliance policies defined in AWS Cloud Development Kit (AWS CDK) as a security controls construct. Which solution will deploy these controls across all accounts and Regions with the LEAST operational overhead?
+*A. Create an AWS CDK app that includes an AWS CloudFormation StackSets construct. Configure the StackSets construct to use the security controls construct as its template. Specify the target accounts and Regions. Create automation to deploy the CDK app to create and manage the CloudFormation stack set.
+B. Create an AWS CDK app that synthesizes an AWS CloudFormation template from the security controls construct. Use Amazon EventBridge to invoke an AWS Lambda function to update a CloudFormation stack set when changes are made to the security controls construct.
+C. Convert the security controls construct to an AWS CloudFormation macro. Create a CloudFormation stack set that references the macro and deploys the macro to all target accounts. Use Organizations to automatically add new accounts to the stack set’s list of target accounts.
+D. Use AWS Control Tower to create a customized landing zone that includes configurations from the security controls construct. Configure AWS Control Tower to automatically enroll new accounts and to apply the landing zone template.
+
+
+
+Q: A company needs to manage shared libraries for various projects across its development AWS account and production AWS account. The company has configured IAM roles for developers and has defined an AWS CodePipeline pipeline by using the AWS Cloud Development Kit (AWS CDK). A DevOps engineer must implement a solution to ensure that only developers can access the latest versions of the libraries. The solution must test shared packages independently before the shared packages are consumed by other applications and before they go to production. Which solution will meet these requirements?
+A. Create a single AWS CodeArtifact repository for development and production in a central account. Use IAM policies for the developer roles to allow only developers to access the shared libraries. Create an Amazon EventBridge role to start an AWS CodeBuild project and to test each package before the package is copied to the production repository.
+*B. Create an AWS CodeArtifact repository in the development account. Create another CodeArtifact repository in the production account. For the development repository, add a repository policy that allows only developers to access the shared libraries. Create an Amazon EventBridge rule to start the CodePipeline pipeline and to test each package before the package is copied to the production repository.
+C. Create a single Amazon S3 bucket with versioning enabled for development and production in a central account. Use IAM policies for the developer roles to allow only the developers to access the shared libraries. Create an Amazon EventBridge rule to start an AWS CodeBuild project and to test each package before the package is copied to production.
+D. Create an Amazon S3 bucket with versioning enabled in the development account. Create another S3 bucket with versioning enabled in the production account. For the development S3 bucket, add a bucket policy that allows only developers to access the shared libraries. Create an Amazon EventBridge role to start the CodePipeline pipeline. Configure the role to test each package when the package is copied to production and to revert the changes if the tests fail.
+
 
 
 
@@ -4043,8 +4110,6 @@ IMG_B: 28.png
 IMG_C: 29.png
 D. 
 IMG_D: 30.png
-
-
 
 
 
@@ -4529,7 +4594,7 @@ function calculateResults(timeExpired = false) {
     const initialScore = correctAnswers * scorePerQuestion;
     const score = Math.round(initialScore); // تقريب لأقرب عدد صحيح فقط
     const percentage = Math.round((correctAnswers / totalQuestions) * 100); // النسبة المئوية الصحيحة
-    const passed = score >= 700;
+    const passed = score >= 750;
     
     // Display results
     let timeText;
